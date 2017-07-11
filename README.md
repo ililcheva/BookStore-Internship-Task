@@ -19,14 +19,13 @@ that uses her API (http://milenabooks.azurewebsites.net/Help)  to:
 
 
 Upload the project on Github when it is ready.
-—————————
+
 
 That’s all  - the only conditions are to use Angular 4, the API given to you and to have
 the functionalities listed. The rest is up to you.
 
 And since you asked about WebVR, here’s a bonus task:
 
-—————————
 Bonus task - Create the future!
 
 Use CentroUI  (https://github.com/Centroida/CentroUI), an experimental, bug-riddled 
@@ -38,7 +37,7 @@ framework for building UI interfaces for React VR.
 
 Upload the project on Github when it is ready.
 
-—————————
+
 GitHub
 Centroida/CentroUI
 CentroUI is a library for building user interfaces for WebVR
