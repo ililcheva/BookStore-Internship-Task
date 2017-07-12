@@ -15,9 +15,9 @@ export class BookListComponent implements OnInit {
 
   getBooks(): void{
     //magic number
-    var relevantBooksCount = 9;
+    var relevantBookTitlesCount = 9;
     this.bookService.getBooks()
-          .then(books => this.books = books.slice(1, relevantBooksCount));
+          .then(books => this.books = books.slice(1, relevantBookTitlesCount));
   }
 
   ngOnInit(): void {
