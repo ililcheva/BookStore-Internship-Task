@@ -10,13 +10,17 @@ import { BookListComponent }    from './book-list/book-list.component';
 import { BookService }          from './book.service';
 
 import { AppRoutingModule }     from './app-routing/app-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BookDetailComponent,
-    BookListComponent
+    BookListComponent,
+    PageNotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
