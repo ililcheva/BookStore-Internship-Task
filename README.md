@@ -12,10 +12,11 @@ But help is on the way!
 You, the front-end engineer, have to develop an Angular 4 application
 that uses her API (http://milenabooks.azurewebsites.net/Help)  to:
 
-- List all the books
+- List all the books //DONE :)
 - Create a book 
-- Delete a book
-- Edit a book.
+- Delete a book 
+- Edit a book. //DONE :) PS: Have a look at the Console if you decide to try the functionality.
+- BONUS: View book details //DONE :)
 
 
 Upload the project on Github when it is ready.

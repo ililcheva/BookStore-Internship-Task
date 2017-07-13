@@ -1,6 +1,11 @@
 <h2> Books </h2>
-  <ul>
-    <li *ngFor="let book of books">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let book of books" (click)="onSelect(book)">
       <span class="book-name">{{book.Name}}</span>
+      <button class="btn btn-danger btn-xs" (click)="delete(book.Id); $event.stopPropagation()">Delete</button>
     </li>
   </ul>
+  <div *ngIf="selectedBook">
+        {{selectedBook.Name | uppercase}} is my book of choice
+      <button class="btn btn-info" (click)="goToDetail(selectedBook.Id)">View Details</button>
+   </div>

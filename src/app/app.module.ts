@@ -2,6 +2,7 @@ import { BrowserModule }        from '@angular/platform-browser';
 import { NgModule }             from '@angular/core';
 import { HttpModule }           from '@angular/http';
 import { NgbModule }            from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule }          from '@angular/forms';
 
 import { AppComponent }         from './app.component';
 import { BookDetailComponent }  from './book-detail/book-detail.component';
@@ -26,7 +27,8 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     HttpModule,
     AppRoutingModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    FormsModule
   ],
   providers: [ BookService ],
   bootstrap: [ AppComponent ]
