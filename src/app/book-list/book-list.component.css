@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*#title{*/
     /*font-family: 'Calligraffitti';*/
     /*font-size: 2.5em;*/
@@ -11,6 +12,21 @@
 /*}*/
 
 
+=======
+#title{
+    font-family: 'Calligraffitti';
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.book-name{
+    color: black;
+    font-family: 'Righteous', cursive;
+    font-size: 1.2em;
+}
+
+
+>>>>>>> did some structure changes today
 /*.btn{
     float: right;
 }
@@ -23,8 +39,16 @@ button{
 
 
 
+<<<<<<< HEAD
 
 img {
     height: 120px;
     width: auto;
 }
+=======
+img{
+    width: 200px;
+}
+
+
+>>>>>>> did some structure changes today
