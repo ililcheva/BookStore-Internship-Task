@@ -1,0 +1,17 @@
+#title{
+    margin: 3% 0 1% 0;
+    font-family: 'Calligraffitti';
+    font-size: 4em;
+    text-align: center;
+}
+
+#navigation{
+    text-align: center;
+    margin: 0 auto;
+}
+
+a{
+    font-family: 'Delius Unicase', cursive;
+    color: black;
+}
+

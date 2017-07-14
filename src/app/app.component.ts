@@ -8,7 +8,7 @@ import { Book }      from './book';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Milena Books';
+  title = "Milena's Books";
   books: Book[];
 
 }

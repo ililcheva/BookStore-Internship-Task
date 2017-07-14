@@ -1,34 +1,36 @@
 <div *ngIf="book">
-  <h2> {{book.Name}} details</h2>
-  <div>
-    <label>id: </label> {{book.Id}}
-  </div>
-  <div>
-    <label>title: </label>
-    <input [(ngModel)]="book.Name" placeholder="title" />
-  </div>
-  <div>
-    <label>author:</label>
-    <input [(ngModel)]="book.Author" placeholder="author" />
-  </div>
-  <div>
-    <label>description:</label>
-    <input [(ngModel)]="book.Description" placeholder="description" />
-  </div>
-  <div>
-    <label>price:</label>
-    <input [(ngModel)]="book.Price" placeholder="price" />
-  </div>
-  <div>
-    <label>rating:</label>
-    <input [(ngModel)]="book.Rating" placeholder="rating" />
-  </div>
-  <div>
-    <label>pictureUrl:</label>
-    <input [(ngModel)]="book.PictureURL" placeholder="pictureUrl" />
-  </div>
-  <button class="btn btn-default" (click)="goBack()">Back</button>
-  <button class="btn btn-success" (click)="save(book.Id)">Save</button>
+  <h2 id="title">Book detail</h2>
+    <h3 class="book-name"> {{book.Name}} </h3>
+  <div class="details">
+    <div class="input-group">
+      <label class="input-group-addon label label-default">title: </label>
+      <input class="form-control" [(ngModel)]="book.Name" placeholder="title" />
+    </div>
+    <div class="input-group">
+      <label class="input-group-addon label label-default">author:</label>
+      <input class="form-control" [(ngModel)]="book.Author" placeholder="author" />
+    </div>
+    <div class="input-group">
+      <label class="label label-default">description:</label>
+      <input class="form-control" [(ngModel)]="book.Description" placeholder="description" />
+    </div>
+    <div class="input-group">
+      <label class="label label-default">price:</label>
+      <input class="form-control" [(ngModel)]="book.Price" placeholder="price" />
+    </div>
+    <div class="input-group">
+      <label class="label label-default">rating:</label>
+      <input class="form-control" [(ngModel)]="book.Rating" placeholder="rating" />
+    </div>
+    <div class="input-group">
+      <label class="label label-default">pictureUrl:</label>
+      <input class="form-control" [(ngModel)]="book.PictureURL" placeholder="pictureUrl" />
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-default" (click)="goBack()">Back</button>
+      <button class="btn btn-success" (click)="save(book.Id)">Save</button>
+    </div>
 
+  </div>
 </div>
 
