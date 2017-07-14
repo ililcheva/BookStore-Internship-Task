@@ -43,7 +43,7 @@ export class BookService {
 
   update(id, book: Book): Promise<Book>{
     return this.http
-            .put(`${this.host}/${this.booksUrl}/${id}`, JSON.stringify(book), { headers: this.headers})
+            .put(`${this.host}/${this.booksUrl}/${book.Id}`, JSON.stringify(book), { headers: this.headers})
             .toPromise()
             .then(() => {
               console.log('*Update method:* //book.service')
