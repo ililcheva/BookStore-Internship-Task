@@ -1,8 +1,6 @@
 <h2 id="title"> Books </h2>
   <div class="container">
     <div class="row">
-<<<<<<< HEAD
-<<<<<<< HEAD
       <div class="col-md-3" *ngFor="let book of books" (click)="onSelect(book)">
           <img class="img-responsive" *ngIf="book.PictureURL" src="{{book.PictureURL}}" alt="Generic placeholder image">
           <img class="img-responsive" *ngIf="!book.PictureURL" src="https://www.anglo-egyptian.com/books_posters/defbookcover.jpg" alt="Generic placeholder image">
@@ -18,28 +16,6 @@
                 <!--<button id="delete" class="btn btn-danger btn-xs" (click)="delete(book.Id); $event.stopPropagation()">Delete</button>-->
               <!--</div>-->
           <!--</div>-->
-=======
-=======
->>>>>>> solving conflict 2.0
-      <div class="col" *ngFor="let book of books" (click)="onSelect(book)">
-          <img class="d-flex align-self-start mr-3" *ngIf="book.PictureURL" src="{{book.PictureURL}}" alt="Generic placeholder image">
-          <img class="d-flex align-self-start mr-3" *ngIf="!book.PictureURL" src="https://www.anglo-egyptian.com/books_posters/defbookcover.jpg" alt="Generic placeholder image">
-          <div class="media" *ngIf="selectedBook===book&&book">
-              <span class="book-name">{{book.Name}}</span>
-              <!--<img class="d-flex align-self-start mr-3" *ngIf="book.PictureURL" src="{{book.PictureURL}}" alt="Generic placeholder image">
-              <img class="d-flex align-self-start mr-3" *ngIf="!book.PictureURL" src="https://www.anglo-egyptian.com/books_posters/defbookcover.jpg" alt="Generic placeholder image">-->
-              <div class="media-body">
-                <h5 class="mt-0">Description:</h5>
-              </div>
-              <div class="d-block">
-                <button class="btn btn-info btn-xs" (click)="goToDetail(selectedBook.Id)">Update</button>
-                <button id="delete" class="btn btn-danger btn-xs" (click)="delete(book.Id); $event.stopPropagation()">Delete</button>
-              </div>
-          </div>
-<<<<<<< HEAD
->>>>>>> did some structure changes today
-=======
->>>>>>> solving conflict 2.0
       </div>
     </div>
   </div>

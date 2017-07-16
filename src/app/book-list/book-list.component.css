@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 /*#title{*/
     /*font-family: 'Calligraffitti';*/
     /*font-size: 2.5em;*/
@@ -11,36 +9,7 @@
     /*font-family: 'Righteous', cursive;*/
     /*font-size: 1.2em;*/
 /*}*/
-=======
-#title{
-    font-family: 'Calligraffitti';
-    font-size: 2.5em;
-    text-align: center;
-}
 
-.book-name{
-    color: black;
-    font-family: 'Righteous', cursive;
-    font-size: 1.2em;
-}
->>>>>>> solving conflict 2.0
-
-
-=======
-#title{
-    font-family: 'Calligraffitti';
-    font-size: 2.5em;
-    text-align: center;
-}
-
-.book-name{
-    color: black;
-    font-family: 'Righteous', cursive;
-    font-size: 1.2em;
-}
-
-
->>>>>>> did some structure changes today
 /*.btn{
     float: right;
 }
@@ -49,26 +18,7 @@ button{
     opacity: 0.0;
 }*/
 
-
-
-
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 img {
     height: 120px;
     width: auto;
 }
-=======
-=======
->>>>>>> solving conflict 2.0
-img{
-    width: 200px;
-}
-
-
-<<<<<<< HEAD
->>>>>>> did some structure changes today
-=======
->>>>>>> solving conflict 2.0
