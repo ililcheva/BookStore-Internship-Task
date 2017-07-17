@@ -1,0 +1,61 @@
+<div *ngIf="book">
+
+
+  <h2 id="title">Book detail</h2>
+    <h3 class="book-name"> {{book.Name}} </h3>
+  <form class="form-group" [formGroup]="bookForm">
+
+      <div class="form-group"
+         [ngClass]="{
+        'has-danger': bookForm.controls.name.invalid && (bookForm.controls.name.dirty || bookForm.controls.name.touched),
+        'has-success': bookForm.controls.name.valid && (bookForm.controls.name.dirty || bookForm.controls.name.touched)
+      }">
+      <label>Name</label>
+      <input type="text"
+             class="form-control"
+             formControlName="name"
+             [(ngModel)]="book.Name"
+             required>
+      <div class="form-control-feedback"
+           *ngIf="bookForm.controls.name.errors && (bookForm.controls.name.dirty || bookForm.controls.name.touched)">
+        <p *ngIf="bookForm.controls.name.errors.required">Book name is required</p>
+      </div>
+      </div>
+
+
+
+    <!-- <div class="input-group">
+      <label class="input-group-addon label label-default">title: </label>
+      <input type="text" class="form-control" formControlName="name" [(ngModel)]="book.Name" placeholder="title" />
+      <div class="form-control-feedback" *ngIf="name.errors && (name.dirty || name.touched)"> 
+           <p *ngIf="name.errors.required">Name is required</p>
+      </div>
+    </div> -->
+    <!-- <div class="input-group">
+      <label class="input-group-addon label label-default">author:</label>
+      <input type="text" class="form-control" formControlName="author" [(ngModel)]="book.Author" placeholder="author" />
+    </div>
+     <div class="input-group">
+      <label class="label label-default">description:</label>
+      <input type="text" class="form-control" formControlName="description" [(ngModel)]="book.Description" placeholder="description" />
+    </div>
+    <div class="input-group">
+      <label class="label label-default">price:</label>
+      <input type="number" class="form-control" formControlName="price" [(ngModel)]="book.Price" placeholder="price" />
+    </div>
+    <div class="input-group">
+      <label class="label label-default">rating:</label>
+      <input type="number" class="form-control" formControlName="rating" [(ngModel)]="book.Rating" placeholder="rating" />
+    </div>
+    <div class="input-group">
+      <label class="label label-default">pictureUrl:</label>
+      <input type="text" class="form-control" formControlName="pictureUrl" [(ngModel)]="book.PictureURL" placeholder="pictureUrl" />
+    </div> -->
+    <div class="btn-group">
+      <button class="btn btn-default" (click)="goBack()">Back</button>
+      <button class="btn btn-primary" (click)="save(book.Id)">Create</button>
+      <button class="btn btn-success" (click)="save(book.Id)">Save</button>
+    </div> 
+
+  </form>
+</div>

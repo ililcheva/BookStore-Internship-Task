@@ -4,13 +4,39 @@
     text-align: center;
 }
 
-.book-name{
+img{
+    height: 400px;
+    width: auto;
+}
+
+.container{
+    margin-bottom: 2%;
+}
+
+
+.book-name, .book-author, .book-description, .book-price{
     color: black;
     font-family: 'Righteous', cursive;
     font-size: 2em;
-    text-align: center;
+    text-align: left;
+    margin: 3% 0 3% 0;
 }
 
+.book-author{
+    font-size: 1.2em;
+}
+
+.book-description{
+    font-family: 'Delius+Unicase';
+    font-style: italic;
+    font-size: 1.2em;
+}
+
+.book-price{
+    font-size: 2.5em;
+}
+
+/*
 .details{
     width: 50%;
     margin-left: 40%;
@@ -30,7 +56,7 @@ button{
 }
 
 
-/*label{
+label{
     margin-right: 0.2%;
 }
 

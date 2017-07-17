@@ -54,4 +54,12 @@ export class BookService {
             .catch(this.handleError);
   }
 
+  delete(book: Book): Promise<Book>{
+    return this.http
+            .delete(`${this.host}/${this.booksUrl}/${book.Id}`, {headers: this.headers})
+            .toPromise()
+            .then(() => null)
+            .catch(this.handleError);
+  }
+
 }
