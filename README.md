@@ -14,7 +14,7 @@ that uses her API (http://milenabooks.azurewebsites.net/Help)  to:
 
 - List all the books //DONE :)
 - Create a book 
-- Delete a book 
+- Delete a book //DONE :)
 - Edit a book. //DONE :) PS: Have a look at the Console if you decide to try the functionality.
 - BONUS: View book details //DONE :)
 

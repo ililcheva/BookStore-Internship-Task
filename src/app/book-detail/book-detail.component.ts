@@ -1,5 +1,5 @@
-import { Component, OnInit, Input }       from '@angular/core';
-import { ActivatedRoute, ParamMap }       from '@angular/router';
+import { Component, OnInit }       from '@angular/core';
+import { ActivatedRoute, ParamMap, Router }       from '@angular/router';
 import { Location }                       from '@angular/common';
 
 //switchMap for processing the route parameters from an observable<book> to a book
@@ -14,14 +14,14 @@ import { BookService }                    from '../book.service';
   styleUrls: ['./book-detail.component.css']
 })
 export class BookDetailComponent implements OnInit {
-  @Input() book: Book;
-  private currentBook: Book;
+  private book: Book;
 
   //injecting services that this component requires
   constructor(
     private bookService: BookService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -37,10 +37,13 @@ export class BookDetailComponent implements OnInit {
     this.location.back();
   }
 
-  save(id: number): void{
-    //save changes
-    console.log('*Save method:* //book-detail.component');
-    this.bookService.update(id, this.book)
+  updateBook(id: number): void{
+    this.router.navigate(['/books/update', id]);
+  }
+
+  delete(book: Book): void{
+    this.bookService
+        .delete(book)
         .then(() => this.goBack());
   }
 
