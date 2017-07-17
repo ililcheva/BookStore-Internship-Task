@@ -1,5 +1,20 @@
-<div *ngIf="book">
-  <h2 id="title">Book detail</h2>
+<div class="container" *ngIf="book">
+  <div class="row">
+    <img class="img-responsive col-md-4" *ngIf="book.PictureURL" src="{{book.PictureURL}}" alt="Generic placeholder image">
+    <img class="img-responsive col-md-4" *ngIf="!book.PictureURL" src="https://www.anglo-egyptian.com/books_posters/defbookcover.jpg" alt="Generic placeholder image">
+    <div class="col-md-8">
+      <h3 class="book-name">{{book.Name}}</h3>
+      <h6 class="book-author">by {{book.Author}}</h6>
+      <p class="book-description">{{book.Description}}</p>
+      <p class="book-price">{{book.Price}}£</p>
+      <div class="btn-group">
+        <button class="btn btn-default" (click)="goBack()">Back</button>
+        <button class="btn btn-primary" (click)="updateBook(book.Id)">Update</button>
+        <button class="btn btn-danger" (click)="delete(book)">Delete</button>
+      </div>  
+    </div>
+  </div>
+  <!--<h2 id="title">Book detail</h2>
     <h3 class="book-name"> {{book.Name}} </h3>
   <div class="details">
     <div class="input-group">
@@ -31,6 +46,5 @@
       <button class="btn btn-success" (click)="save(book.Id)">Save</button>
     </div>
 
-  </div>
+  </div>-->
 </div>
-
