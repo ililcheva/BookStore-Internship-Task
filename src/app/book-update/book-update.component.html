@@ -1,7 +1,86 @@
+<h2 id="title"> Book details </h2>
 <div *ngIf="book">
+  <form id="form" class="text-center" [formGroup]="bookForm">
+        <div class="form-group form-inline">
+          <label class="">Name:</label>
+          <input class=" form-control" type="text" formControlName="name" [(ngModel)]="book.Name">
+          <div *ngIf="bookForm.controls['name'].hasError('required')"
+              class="alert alert-danger">
+            Name is required!
+          </div>
+            <div *ngIf="bookForm.controls['name'].hasError('pattern')"
+              class="alert alert-danger">
+            Name should consist of latin letters only!
+          </div>
+        </div>
+      <div class="form-group form-inline">  
+        <label>Author:</label>
+        <input type="text" class="form-control" formControlName="author" [(ngModel)]="book.Author">
+        <div *ngIf="bookForm.controls['author'].hasError('required')"
+              class="alert alert-danger">
+            Author is required!
+          </div>
+            <div *ngIf="bookForm.controls['author'].hasError('pattern')"
+              class="alert alert-danger">
+            Author should consist of latin letters only!
+          </div>
+      </div>
+        <div class="form-group form-inline">  
+        <label>Description:</label>
+        <textarea  class="form-control" formControlName="description" [(ngModel)]="book.Description"></textarea>
+        <div *ngIf="bookForm.controls['description'].hasError('required')"
+              class="alert alert-danger">
+            Description is required!
+          </div>
+            <div *ngIf="bookForm.controls['description'].hasError('minlength') || bookForm.controls['description'].hasError('maxlength')"
+              class="alert alert-danger">
+            Description must be between 30 and 500 characters long!
+          </div>
+      </div>
+        <div class="form-group form-inline">  
+        <label>Price:</label>
+        <input class="form-control" formControlName="price" [(ngModel)]="book.Price">
+        <div *ngIf="bookForm.controls['price'].hasError('required')"
+              class="alert alert-danger">
+            Price is required!
+          </div>
+            <div *ngIf="bookForm.controls['price'].hasError('pattern')"
+              class="alert alert-danger">
+            Price must consist only of digits!
+          </div>
+      </div>
+        <div class="form-group form-inline">  
+        <label>Rating:</label>
+        <input class="form-control" formControlName="rating" [(ngModel)]="book.Rating">
+            <div *ngIf="bookForm.controls['rating'].hasError('pattern')"
+              class="alert alert-danger">
+               Rating must be a single digit between 1 and 5!
+            </div>
+        </div>
+        <div class="form-group form-inline">  
+        <label>PictureUrl:</label>
+        <input class="form-control" formControlName="pictureUrl" [(ngModel)]="book.PictureURL">
+        </div>
+         <div class="btn-group">
+      <button class="btn btn-default" (click)="goBack()">Back</button>
+      <button class="btn btn-primary" (click)="create(bookForm.value)" [disabled]="!bookForm.valid">Create</button>
+      <button class="btn btn-success" (click)="save(bookForm.value)" [disabled]="!bookForm.valid">Save</button>
+    </div> 
 
 
-  <h2 id="title">Book detail</h2>
+
+  </form>
+</div>
+<!-- Value: {{ bookForm.controls['name'].errors | json}}
+Validation status: {{ bookForm.status | json}} -->
+
+
+
+
+<!-- <div *ngIf="book"> -->
+
+
+ <!-- <h2 id="title">Book detail</h2>
     <h3 class="book-name"> {{book.Name}} </h3>
   <form class="form-group" [formGroup]="bookForm">
 
@@ -21,7 +100,8 @@
         <p *ngIf="bookForm.controls.name.errors.required">Book name is required</p>
       </div>
       </div>
-
+      {{bookForm.controls.name.dirty | json}}
+      {{bookForm.controls.name.touched | json}} -->
 
 
     <!-- <div class="input-group">
@@ -51,11 +131,6 @@
       <label class="label label-default">pictureUrl:</label>
       <input type="text" class="form-control" formControlName="pictureUrl" [(ngModel)]="book.PictureURL" placeholder="pictureUrl" />
     </div> -->
-    <div class="btn-group">
-      <button class="btn btn-default" (click)="goBack()">Back</button>
-      <button class="btn btn-primary" (click)="save(book.Id)">Create</button>
-      <button class="btn btn-success" (click)="save(book.Id)">Save</button>
-    </div> 
 
-  </form>
-</div>
+  <!-- </form> -->
+<!-- </div> -->

@@ -22,7 +22,7 @@ export class BookListComponent implements OnInit {
       //magic number
       var relevantBookTitlesCount = 9;
       this.bookService.getBooks()
-            .then(books => this.books = books.slice(1, relevantBookTitlesCount));
+            .then(books => this.books = books/*.slice(1, relevantBookTitlesCount)*/);
     }
 
   getBook(id: number): void{

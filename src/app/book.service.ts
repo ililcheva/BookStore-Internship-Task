@@ -62,4 +62,12 @@ export class BookService {
             .catch(this.handleError);
   }
 
+  create(book: Book): Promise<Book>{
+    return this.http
+            .post(`${this.host}/${this.booksUrl}`, JSON.stringify(book), {headers: this.headers})
+            .toPromise()
+            .then(res => res.json() as Book)
+            .catch(this.handleError);
+  }
+
 }
