@@ -26,10 +26,10 @@ export class BookUpdateComponent implements OnInit {
   ) { 
 
     this.bookForm = this.fb.group({
-       name: ['',  Validators.compose([Validators.required, Validators.pattern(/^[a-zA-Z\s.-]*$/)])],
-       author: ['', Validators.compose([Validators.required, Validators.pattern(/^[a-zA-Z\s.-]*$/)])],
-       description: ['', Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500) ])],
-       price: ['', Validators.compose([Validators.required, Validators.pattern(/^[0-9]*$/)])],
+      name: ['',  Validators.compose([Validators.required, Validators.pattern(/^[a-zA-Z\s\'\".-]*$/)])],
+      author: ['', Validators.compose([Validators.required, Validators.pattern(/^[a-zA-Z\s.-]*$/)])],
+      description: ['', Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500) ])],
+      price: ['', Validators.compose([Validators.required, Validators.pattern(/^[0-9]*$/)])],
       rating: ['', Validators.compose([Validators.pattern(/^[1-5]{1}$/)])],
       pictureUrl: ['', ],
     })
