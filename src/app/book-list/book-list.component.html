@@ -1,7 +1,7 @@
 <h2 id="title"> Books </h2>
   <div class="container">
     <div class="row">
-      <div class="col-md-3" *ngFor="let book of books" (click)="onSelect(book)">
+      <div class="col-md-3" *ngFor="let book of booksPerPage" (click)="onSelect(book)">
           <div class="card">
             <img class="card-img-top" *ngIf="book.PictureURL" src="{{book.PictureURL}}" alt="Card image cap">
             <img class="card-img-top" *ngIf="!book.PictureURL" src="https://www.anglo-egyptian.com/books_posters/defbookcover.jpg" alt="Card image cap">
@@ -12,5 +12,8 @@
             </div>
           </div> 
       </div>
+    </div>
+    <div class="text-center"> 
+      <ngb-pagination [(collectionSize)]="size" [(page)]="currentPage" (pageChange)="changePage($event)"></ngb-pagination>
     </div>
   </div>
