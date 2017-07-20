@@ -18,6 +18,11 @@ that uses her API (http://milenabooks.azurewebsites.net/Help)  to:
 - Edit a book. //DONE :) PS: Have a look at the Console if you decide to try the functionality.
 - BONUS: View book details //DONE :)
 
+- BONUS BONUS Tasks:
+- List all stores
+- Select a store’s books
+- Filter books by store
+
 
 Upload the project on Github when it is ready.
 

@@ -1,0 +1,17 @@
+<h2 id="title"> Stores </h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3" *ngFor="let store of stores">
+          <div class="card text-center">
+            <img class="card-img-top" src="../../assets/img/bookstores.png" alt="Card image cap"> 
+            <div class="card-block">
+              <h4 class="card-title">{{store.Name}}</h4>
+              <button type="button" class="btn btn-secondary btn-large" (click)="goToBooks(store.Id)"> View Books </button>
+            </div>
+          </div> 
+      </div>
+    </div>
+    <!-- <div class="text-center"> 
+      <ngb-pagination [(collectionSize)]="size" [(page)]="currentPage" (pageChange)="changePage($event)"></ngb-pagination>
+    </div> -->
+  </div>
