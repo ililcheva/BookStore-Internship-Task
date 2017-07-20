@@ -25,7 +25,6 @@ export class StoreListComponent implements OnInit {
       this.storeService.getStores()
             .then(stores => this.stores = stores);
   }
-
   
   goToBooks(storeId: number): void{
     this.router.navigate(['/store', storeId]);

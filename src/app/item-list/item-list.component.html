@@ -1,0 +1,19 @@
+<h2 id="title"> {{capitalizeFirstLetter(this.url[1])}}</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3" *ngFor="let item of itemsPerPage">
+          <div class="card">
+            <img class="card-img-top" *ngIf="item.PictureURL" src="{{item.PictureURL}}" alt="Card image cap">
+            <img class="card-img-top" *ngIf="!item.PictureURL" src="https://www.anglo-egyptian.com/books_posters/defbookcover.jpg" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title">{{item.Name}}</h4>
+              <p class="card-text">by {{item.Author}}</p>
+              <button type="button" class="btn btn-secondary btn-large" (click)="goToDetail(item.Id)"> View Details </button>
+            </div>
+          </div> 
+      </div>
+    </div>
+    <div class="text-center"> 
+      <ngb-pagination [(collectionSize)]="size" [(page)]="currentPage" (pageChange)="changePage($event)"></ngb-pagination>
+    </div>
+  </div>

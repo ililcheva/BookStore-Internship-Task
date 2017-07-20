@@ -24,8 +24,9 @@ export class BookListComponent implements OnInit {
 
   constructor(
     private bookService: BookService,
-    private router: Router
-    ) { }
+    private router: Router,
+    ) { 
+    }
 
   getBooks(): void{
       //magic number
@@ -55,7 +56,7 @@ export class BookListComponent implements OnInit {
   }
 
   goToDetail(id: number): void{
-    this.router.navigate(['/books', id]);
+    this.router.navigate(['book', id]);
   }
 
   changePage(page: number): any{
@@ -68,6 +69,7 @@ export class BookListComponent implements OnInit {
     this.booksPerPage = this.books.slice(this.skip, this.skip + this.top);
     // console.log(this.booksPerPage);
     // console.log(this.books);
+    console.log(this.router.url);
   }
 
 }

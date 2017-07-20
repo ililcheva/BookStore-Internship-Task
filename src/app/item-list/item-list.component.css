@@ -1,0 +1,51 @@
+ #title{
+    font-family: 'Calligraffitti';
+    font-size: 2.5em;
+    text-align: center;
+} 
+
+btn{
+    float: right;
+}
+/*
+button{
+    opacity: 0.0;
+}*/
+
+img {
+    height: 400px;
+    width: auto;
+}
+
+.card-block{
+    padding-bottom: 2%;
+}
+
+.card button{
+    position:absolute;
+    top:45%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    -ms-transform:translate(-50%,-50%);
+    opacity: 0.0;
+}
+
+.card:hover button{
+    opacity: 1.0;
+    filter: gray;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+}
+
+.card:hover img{
+    opacity: 0.3;
+    filter: gray;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+}

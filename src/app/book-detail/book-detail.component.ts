@@ -35,10 +35,11 @@ export class BookDetailComponent implements OnInit {
   goBack(): void{
     //navigates back to book's list
     this.location.back();
+    console.log(this.router.url.split('/'));
   }
 
   updateBook(id: number): void{
-    this.router.navigate(['/books/update', id]);
+    this.router.navigate(['/book/update', id]);
   }
 
   delete(book: Book): void{
