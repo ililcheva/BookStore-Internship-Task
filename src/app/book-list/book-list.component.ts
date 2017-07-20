@@ -15,6 +15,10 @@ export class BookListComponent implements OnInit {
   selectedBook: Book;
   size: number;
   booksPerPage: Book[];
+  booksPerPageCount: number = 8;
+  //
+  top: number;
+  skip: number = 0;
   //page 1
   //1-10
 
@@ -28,8 +32,9 @@ export class BookListComponent implements OnInit {
       var relevantBookTitlesCount = 9;
       this.bookService.getBooks()
             .then(books => {
+              this.top = this.booksPerPageCount;
               this.books = books;
-              this.booksPerPage = this.books.slice(0, 8);
+              this.booksPerPage = this.books.slice(this.skip, this.booksPerPageCount);
               this.size = books.length;
             }
             );
@@ -55,13 +60,14 @@ export class BookListComponent implements OnInit {
 
   changePage(page: number): any{
     if(page === 1){
-      this.booksPerPage = this.books.slice(0, 10 - 2);
+      this.skip = 0;
     }
     else{
-      this.booksPerPage = this.books.slice((page - 1) * 10 - 2, (page - 1) * 10 + 6);
+      this.skip = this.booksPerPageCount * (page - 1);
     }
-    console.log(this.booksPerPage);
-    console.log(this.books);
+    this.booksPerPage = this.books.slice(this.skip, this.skip + this.top);
+    // console.log(this.booksPerPage);
+    // console.log(this.books);
   }
 
 }

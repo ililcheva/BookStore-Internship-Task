@@ -9,11 +9,14 @@ import { BookDetailComponent }                      from './book-detail/book-det
 import { BookListComponent }                        from './book-list/book-list.component';
 
 import { BookService }                              from './book.service';
+import { StoreService }                             from './store.service';
 
 import { AppRoutingModule }                         from './app-routing/app-routing.module';
 import { PageNotFoundComponent }                    from './page-not-found/page-not-found.component';
 import { HomeComponent }                            from './home/home.component';
 import { BookUpdateComponent }                      from './book-update/book-update.component';
+import { StoreListComponent } from './store-list/store-list.component';
+import { BooksPerStoreListComponent } from './books-per-store-list/books-per-store-list.component';
 
 
 
@@ -25,7 +28,9 @@ import { BookUpdateComponent }                      from './book-update/book-upd
     BookListComponent,
     PageNotFoundComponent,
     HomeComponent,
-    BookUpdateComponent
+    BookUpdateComponent,
+    StoreListComponent,
+    BooksPerStoreListComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,7 @@ import { BookUpdateComponent }                      from './book-update/book-upd
     NgbModule.forRoot(),
     FormsModule
   ],
-  providers: [ BookService ],
+  providers: [ BookService, StoreService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { 
