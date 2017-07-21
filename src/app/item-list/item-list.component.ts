@@ -77,7 +77,19 @@ export class ItemListComponent implements OnInit {
   }
 
   goToDetail(id: number): void{
-    this.router.navigate([this.url[1].slice(0,-1), id]);
+    const detailCollectionUrl = this.url[1].slice(0,-1);
+    const detailChildCollectionUrl = this.url[1];
+    if(this.url[1] === 'books'){
+      this.router.navigate([`${detailCollectionUrl}`, id]);
+    }
+    else if(this.url[1] === 'stores'){
+      this.router.navigate([`${detailCollectionUrl}`, id]);
+    }
+    else if(this.url[1] === 'store'){
+      const storeId = this.url[2];
+      //console.log(storeId);
+      this.router.navigate([`${detailChildCollectionUrl}/${+storeId}/book`, id]);
+    }
   }
 
   changePage(page: number): any{
