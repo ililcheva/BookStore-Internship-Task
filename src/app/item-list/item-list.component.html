@@ -1,6 +1,7 @@
 <h2 id="title"> {{capitalizeFirstLetter(this.url[1])}}</h2>
   <div class="container">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div class="row card-deck">
       <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" *ngFor="let item of itemsPerPage">
         <!-- BOOKS -->
@@ -21,18 +22,25 @@
 =======
     <div class="row">
       <div class="col-md-3" *ngFor="let item of itemsPerPage">
+=======
+    <div class="row card-deck">
+      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" *ngFor="let item of itemsPerPage">
+>>>>>>> fixed cards and their responsiveness
         <!-- BOOKS -->
           <div class="card">
-            <img class="card-img-top" *ngIf="item.PictureURL" src="{{item.PictureURL}}" alt="Card image cap">
-            <img class="card-img-top" *ngIf="!item.PictureURL && item.Author" src="https://www.anglo-egyptian.com/books_posters/defbookcover.jpg" alt="Card image cap">
-            <img class="card-img-top" *ngIf="!item.PictureURL && !item.Author" src="../../assets/img/bookstores.png" alt="Card image cap">
-            <div class="card-block">
-              <h4 class="card-title" *ngIf="item.Author">{{item.Name}}</h4>
-              <h4 class="card-title text-center" *ngIf="!item.Author">{{item.Name}}</h4>
-              <p class="card-text" *ngIf="item.Author">by {{item.Author}}</p>
-              <button type="button" class="btn btn-secondary btn-large" (click)="goToDetail(item.Id)"> View Details </button>
-            </div>
+              <div class="text-center">
+                <img class="img-responsive card-img" *ngIf="item.PictureURL" src="{{item.PictureURL}}" alt="Card image cap">
+                <img class="img-responsive card-img" *ngIf="!item.PictureURL && (item.Author || item.Price || item.Rating || item.Description)" src="https://www.anglo-egyptian.com/books_posters/defbookcover.jpg" alt="Card image cap">
+                <img class="img-responsive card-img" *ngIf="!item.PictureURL && !item.Author" src="../../assets/img/bookstores.png" alt="Card image cap">
+              </div>
+              <div class="card-block">
+                <h4 class="card-title text-center" *ngIf="item.Author">{{item.Name}}</h4>
+                <h4 class="card-title text-center" *ngIf="!item.Author">{{item.Name}}</h4>
+                <p class="card-text text-center" *ngIf="item.Author">by {{item.Author}}</p>
+                <button type="button" class="btn btn-secondary btn-large" (click)="goToDetail(item.Id)"> View Details </button>
+              </div>
           </div>
+<<<<<<< HEAD
           <!-- STORES -->
            <!-- <div class="card" *ngIf="!item.Author">
             <img class="card-img-top" src="../../assets/img/bookstores.png" alt="Card image cap"> 
@@ -42,6 +50,9 @@
             </div>
           </div>  -->
 >>>>>>> list views and routes completed
+=======
+        </div>
+>>>>>>> fixed cards and their responsiveness
       </div>
     </div>
     <div class="text-center"> 
