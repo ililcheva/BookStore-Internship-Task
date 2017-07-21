@@ -15,7 +15,8 @@ const routes: Routes = [
     { path: 'book/:id',           component: BookDetailComponent }, // book-details path
     { path: 'book/update/:id',    component: BookUpdateComponent },
     { path: 'stores',             component: ItemListComponent },
-    { path: 'store/:id',          component: BookDetailComponent },
+    { path: 'store/:id',          component: ItemListComponent },
+    { path: 'store/:id/book/:id', component: BookDetailComponent },
     { path: 'items',              component: ItemListComponent },
     { path: '**',                 component: PageNotFoundComponent} //page-not-found path
 ];

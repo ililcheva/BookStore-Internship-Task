@@ -15,12 +15,12 @@ that uses her API (http://milenabooks.azurewebsites.net/Help)  to:
 - List all the books //DONE :)
 - Create a book //DONE :)
 - Delete a book //DONE :)
-- Edit a book. //DONE :) PS: Have a look at the Console if you decide to try the functionality.
+- Edit a book. //DONE :) 
 - BONUS: View book details //DONE :)
 
 - BONUS BONUS Tasks:
-- List all stores
-- Select a store’s books
+- List all stores //DONE :)
+- Select a store’s books //DONE :)
 - Filter books by store
 
 

@@ -2,15 +2,26 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3" *ngFor="let item of itemsPerPage">
+        <!-- BOOKS -->
           <div class="card">
             <img class="card-img-top" *ngIf="item.PictureURL" src="{{item.PictureURL}}" alt="Card image cap">
-            <img class="card-img-top" *ngIf="!item.PictureURL" src="https://www.anglo-egyptian.com/books_posters/defbookcover.jpg" alt="Card image cap">
+            <img class="card-img-top" *ngIf="!item.PictureURL && item.Author" src="https://www.anglo-egyptian.com/books_posters/defbookcover.jpg" alt="Card image cap">
+            <img class="card-img-top" *ngIf="!item.PictureURL && !item.Author" src="../../assets/img/bookstores.png" alt="Card image cap">
             <div class="card-block">
-              <h4 class="card-title">{{item.Name}}</h4>
-              <p class="card-text">by {{item.Author}}</p>
+              <h4 class="card-title" *ngIf="item.Author">{{item.Name}}</h4>
+              <h4 class="card-title text-center" *ngIf="!item.Author">{{item.Name}}</h4>
+              <p class="card-text" *ngIf="item.Author">by {{item.Author}}</p>
               <button type="button" class="btn btn-secondary btn-large" (click)="goToDetail(item.Id)"> View Details </button>
             </div>
-          </div> 
+          </div>
+          <!-- STORES -->
+           <!-- <div class="card" *ngIf="!item.Author">
+            <img class="card-img-top" src="../../assets/img/bookstores.png" alt="Card image cap"> 
+            <div class="card-block">
+              <h4 class="card-title text-center">{{item.Name}}</h4>
+              <button type="button" class="btn btn-secondary btn-large" (click)="goToDetail(item.Id)"> View Books </button>
+            </div>
+          </div>  -->
       </div>
     </div>
     <div class="text-center"> 
