@@ -21,7 +21,7 @@ that uses her API (http://milenabooks.azurewebsites.net/Help)  to:
 - BONUS BONUS Tasks:
 - List all stores //DONE :)
 - Select a store’s books //DONE :)
-- Filter books by store
+- Filter books by store //DONE :)
 
 
 Upload the project on Github when it is ready.
