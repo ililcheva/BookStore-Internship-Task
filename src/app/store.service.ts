@@ -41,7 +41,7 @@ export class StoreService {
   }
 
   getStore(id: number): Promise<Store>{
-    console.log(id);
+    // console.log(id);
     return this.http.get(`${this.host}/${this.storesUrl.toLowerCase()}/${id}`)
               .toPromise()
               .then(res => res.json() as Store)
