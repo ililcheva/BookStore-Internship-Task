@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 <h2 id="title"> {{capitalizeFirstLetter(this.url[1])}}</h2>
   <div class="container">
 <<<<<<< HEAD
 <<<<<<< HEAD
     <div class="row card-deck">
+=======
+<h2 id="title" *ngIf="!selectedStore"> {{capitalizeFirstLetter(this.url[1])}}</h2>
+<h2 id="title" *ngIf="selectedStore"> Displaying books of  <em> {{displayedStore.Name}}</em></h2>
+      <div class="row card-deck">  
+>>>>>>> added book filtration by store
       <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" *ngFor="let item of itemsPerPage">
         <!-- BOOKS -->
           <div class="card">
@@ -19,6 +25,7 @@
               </div>
           </div>
         </div>
+<<<<<<< HEAD
 =======
     <div class="row">
       <div class="col-md-3" *ngFor="let item of itemsPerPage">
@@ -55,6 +62,9 @@
 >>>>>>> fixed cards and their responsiveness
       </div>
     </div>
+=======
+        </div>  
+>>>>>>> added book filtration by store
     <div class="text-center"> 
       <ngb-pagination [(collectionSize)]="size" [(page)]="currentPage" (pageChange)="changePage($event)"></ngb-pagination>
     </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit }                         from '@angular/core';
+import { Component, OnInit, Input }                         from '@angular/core';
 import { Router}            from '@angular/router';
 
 import { Book }              from '../book';
@@ -12,20 +12,33 @@ import { StoreService }       from '../store.service';
   styleUrls: ['./item-list.component.css']
 })
 export class ItemListComponent implements OnInit {
+
+  
+  @Input() 
+  set onSelectedStore(_selectedStore: number){
+    this.selectedStore = _selectedStore;
+    console.log('setter', this.selectedStore);
+    this.getItems();
+    this.getStore(this.selectedStore);
+  } 
+  // get selectedStore(): number{
+  //   return this._selectedStore;
+  // }
+  
+ 
+  selectedStore: number;
   currentPage = 1;
   books: Book[];
   stores: Store[];
   items: any[];
   selectedBook: Book;
-  selectedStore: Store;
   size: number;
   itemsPerPage: any[];
   itemsPerPageCount: number = 8;
-  //
   top: number;
   skip: number = 0;
-  //page 1
-  //1-10
+  displayedStore: Store;
+
 
   url: string[] = this.router.url.split('/');
 
@@ -36,19 +49,26 @@ export class ItemListComponent implements OnInit {
     ) {
      }
 
-  getItems(urlArgs): void{
+  getItems(): void{
     let promise: Promise<any[]>;
-      if(urlArgs[1] === 'books'){
-        promise = this.bookService.getBooks();
-      }
-      else if(urlArgs[1] === 'stores'){
-        promise = this.storeService.getStores();
-      }
-      else if(urlArgs[1] === 'store'){
-        promise = this.storeService.getBooksPerStore(+urlArgs[2]);
+      if(this.selectedStore){
+        console.log('if');
+        promise = this.storeService.getBooksPerStore(this.selectedStore);
       }
       else{
-        //should not happen
+        console.log('else');
+        if(this.url[1] === 'books'){
+        promise = this.bookService.getBooks();
+        }
+        else if(this.url[1] === 'stores'){
+          promise = this.storeService.getStores();
+        }
+        else if(this.url[1] === 'store'){
+          promise = this.storeService.getBooksPerStore(+this.url[2]);
+        }
+        else{
+          //should not happen
+        }
       }
       promise.then(items => {
               this.top = this.itemsPerPageCount;
@@ -64,9 +84,16 @@ export class ItemListComponent implements OnInit {
         
   }
 
-  ngOnInit(): void {
-    this.getItems(this.url);
+  getStore(id: number): void{
+    this.storeService.getStore(id)
+      .then(store => this.displayedStore = store);
   }
+
+  ngOnInit(): void {
+    console.log('ngOnInit');
+    this.getItems();
+  }
+
 
   // onSelect(book: Book): void{
   //   this.selectedBook = book;

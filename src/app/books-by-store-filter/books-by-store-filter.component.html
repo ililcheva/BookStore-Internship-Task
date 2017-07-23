@@ -1,0 +1,7 @@
+<div id="container">
+  <ul class="list-group">
+       <li class="list-group-item" *ngFor="let store of stores" (click)="getBooksPerStore(store.Id)" [class.active]="store===selectedStore"> 
+        <h5>{{ store.Name }}</h5>
+      </li>
+   </ul>
+</div>

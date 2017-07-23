@@ -15,6 +15,8 @@ import { PageNotFoundComponent }                    from './page-not-found/page-
 import { HomeComponent }                            from './home/home.component';
 import { BookUpdateComponent }                      from './book-update/book-update.component';
 import { ItemListComponent }                        from './item-list/item-list.component';
+import { BooksByStoreFilterComponent } from './books-by-store-filter/books-by-store-filter.component';
+import { BooksComponent } from './books/books.component';
 
 
 
@@ -26,7 +28,9 @@ import { ItemListComponent }                        from './item-list/item-list.
     PageNotFoundComponent,
     HomeComponent,
     BookUpdateComponent,
-    ItemListComponent
+    ItemListComponent,
+    BooksByStoreFilterComponent,
+    BooksComponent
   ],
   imports: [
     BrowserModule,
