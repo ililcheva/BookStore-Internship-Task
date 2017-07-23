@@ -1,6 +1,10 @@
 <div id="container">
   <ul class="list-group">
+<<<<<<< HEAD
        <li class="list-group-item" *ngFor="let store of stores" (click)="getBooksPerStore(store)" [class.active]="store===selectedStore"> 
+=======
+       <li class="list-group-item" *ngFor="let store of stores" (click)="getBooksPerStore(store.Id)" [class.active]="store===selectedStore"> 
+>>>>>>> added book filtration by store
         <h5>{{ store.Name }}</h5>
       </li>
    </ul>
