@@ -102,12 +102,7 @@ export class ItemListComponent implements OnInit {
   }
 
   changePage(page: number): any{
-    if(page === 1){
-      this.skip = 0;
-    }
-    else{
-      this.skip = this.itemsPerPageCount * (page - 1);
-    }
+    page === 1? this.skip = 0: this.skip = this.itemsPerPageCount * (page - 1);
     this.itemsPerPage = this.items.slice(this.skip, this.skip + this.top);
   }
 
