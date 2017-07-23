@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <h2 id="title"> {{capitalizeFirstLetter(this.url[1])}}</h2>
   <div class="container">
 <<<<<<< HEAD
@@ -7,10 +8,11 @@
 =======
 <h2 id="title" *ngIf="!selectedStore"> {{capitalizeFirstLetter(this.url[1])}}</h2>
 <h2 id="title" *ngIf="selectedStore!==undefined"> Displaying books of  <em> {{selectedStore.Name}}</em></h2>
+=======
+>>>>>>> title moved to book component's template
       <div class="row card-deck">  
 >>>>>>> added book filtration by store
       <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" *ngFor="let item of itemsPerPage">
-        <!-- BOOKS -->
           <div class="card">
               <div class="text-center">
                 <img class="img-responsive card-img" *ngIf="item.PictureURL" src="{{item.PictureURL}}" alt="Card image cap">

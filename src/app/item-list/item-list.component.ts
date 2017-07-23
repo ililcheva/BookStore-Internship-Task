@@ -87,7 +87,7 @@ export class ItemListComponent implements OnInit {
     const detailCollectionUrl = this.url[1].slice(0,-1);
     let navigateToUrl = '';
     switch(this.listCollectionUrl){
-      case (this.listCollectionUrl ==='books'? 'books': 'stores'):
+      case (this.listCollectionUrl === 'books'? 'books': 'stores'):
         navigateToUrl = `${detailCollectionUrl}`;
         break;
       case 'store':
