@@ -6,7 +6,7 @@
     <div class="row card-deck">
 =======
 <h2 id="title" *ngIf="!selectedStore"> {{capitalizeFirstLetter(this.url[1])}}</h2>
-<h2 id="title" *ngIf="selectedStore"> Displaying books of  <em> {{displayedStore.Name}}</em></h2>
+<h2 id="title" *ngIf="selectedStore!==undefined"> Displaying books of  <em> {{selectedStore.Name}}</em></h2>
       <div class="row card-deck">  
 >>>>>>> added book filtration by store
       <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" *ngFor="let item of itemsPerPage">
