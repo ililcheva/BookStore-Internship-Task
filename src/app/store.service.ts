@@ -24,7 +24,7 @@ export class StoreService {
     return this.http.get(`${this.host}/${this.storesUrl}`)
               .toPromise()
               .then(res => {
-                console.log(res.json());
+                // console.log(res.json());
                 return res.json() as Store[];
               })
               .catch(this.handleError);
@@ -34,16 +34,17 @@ export class StoreService {
     return this.http.get(`${this.host}/${this.storesUrl.toLowerCase()}/${id}/books`)
               .toPromise()
               .then(res => {
-                console.log(res.json());
+                // console.log(res.json());
                 return res.json() as Book[];
               })
               .catch(this.handleError);
   }
 
   getStore(id: number): Promise<Store>{
+    console.log(id);
     return this.http.get(`${this.host}/${this.storesUrl.toLowerCase()}/${id}`)
               .toPromise()
-              .then(res => res.json() as Store[])
+              .then(res => res.json() as Store)
               .catch(this.handleError);
   }
 

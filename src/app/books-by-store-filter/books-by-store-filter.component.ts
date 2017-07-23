@@ -10,7 +10,7 @@ import { StoreService }       from '../store.service';
 })
 export class BooksByStoreFilterComponent implements OnInit {
 
-  @Output() onBooksRequest = new EventEmitter<number>();
+  @Output() onBooksRequest = new EventEmitter<Store>();
   
   stores: Store[];
   selectedStore: Store;
@@ -28,8 +28,8 @@ export class BooksByStoreFilterComponent implements OnInit {
       .then(stores => this.stores = stores);
   }
 
-  getBooksPerStore(id: number){
-    this.onBooksRequest.emit(id);
-    this.selectedStore = this.stores.find(store => store.Id === id);
+  getBooksPerStore(store: Store){
+    this.onBooksRequest.emit(store);
+    this.selectedStore = store;
   }
 }

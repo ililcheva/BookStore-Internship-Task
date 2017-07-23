@@ -15,23 +15,18 @@ export class ItemListComponent implements OnInit {
 
   
   @Input() 
-  set onSelectedStore(_selectedStore: number){
+  set onSelectedStore(_selectedStore: Store){
     this.selectedStore = _selectedStore;
-    console.log('setter', this.selectedStore);
-    this.getItems();
-    this.getStore(this.selectedStore);
+    // console.log('setter', this.selectedStore);
+    if(this.selectedStore){
+      this.getItems();
+    }
   } 
-  // get selectedStore(): number{
-  //   return this._selectedStore;
-  // }
   
  
-  selectedStore: number;
+  selectedStore: Store;
   currentPage = 1;
-  books: Book[];
-  stores: Store[];
   items: any[];
-  selectedBook: Book;
   size: number;
   itemsPerPage: any[];
   itemsPerPageCount: number = 8;
@@ -41,6 +36,7 @@ export class ItemListComponent implements OnInit {
 
 
   url: string[] = this.router.url.split('/');
+  listCollectionUrl = this.url[1];
 
   constructor(
     private bookService: BookService,
@@ -52,22 +48,22 @@ export class ItemListComponent implements OnInit {
   getItems(): void{
     let promise: Promise<any[]>;
       if(this.selectedStore){
-        console.log('if');
-        promise = this.storeService.getBooksPerStore(this.selectedStore);
+        // console.log('if');
+        promise = this.storeService.getBooksPerStore(this.selectedStore.Id);
       }
       else{
-        console.log('else');
-        if(this.url[1] === 'books'){
-        promise = this.bookService.getBooks();
-        }
-        else if(this.url[1] === 'stores'){
-          promise = this.storeService.getStores();
-        }
-        else if(this.url[1] === 'store'){
-          promise = this.storeService.getBooksPerStore(+this.url[2]);
-        }
-        else{
-          //should not happen
+        // console.log('else');
+        switch(this.listCollectionUrl){
+          case 'books':
+            promise = this.bookService.getBooks();
+            break;
+          case 'stores':
+            promise = this.storeService.getStores();
+            break;
+          case 'store':
+            const currentStoreId = +this.url[2];
+            promise = this.storeService.getBooksPerStore(currentStoreId);
+            break;
         }
       }
       promise.then(items => {
@@ -78,26 +74,10 @@ export class ItemListComponent implements OnInit {
       });
   }
 
-  getBook(id: number): void{
-    this.bookService.getBook(id)
-        .then(book => this.selectedBook);
-        
-  }
-
-  getStore(id: number): void{
-    this.storeService.getStore(id)
-      .then(store => this.displayedStore = store);
-  }
-
   ngOnInit(): void {
-    console.log('ngOnInit');
+    // console.log('ngOnInit');
     this.getItems();
   }
-
-
-  // onSelect(book: Book): void{
-  //   this.selectedBook = book;
-  // }
 
   capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -105,18 +85,20 @@ export class ItemListComponent implements OnInit {
 
   goToDetail(id: number): void{
     const detailCollectionUrl = this.url[1].slice(0,-1);
-    const detailChildCollectionUrl = this.url[1];
-    if(this.url[1] === 'books'){
-      this.router.navigate([`${detailCollectionUrl}`, id]);
+    let navigateToUrl = '';
+    switch(this.listCollectionUrl){
+      case 'books':
+        navigateToUrl = `${detailCollectionUrl}`;
+        break;
+      case 'stores':
+        navigateToUrl = `${detailCollectionUrl}`;
+        break;
+      case 'store':
+        const storeId = +this.url[2];
+        navigateToUrl = `${this.listCollectionUrl}/${storeId}/book`;
+        break;
     }
-    else if(this.url[1] === 'stores'){
-      this.router.navigate([`${detailCollectionUrl}`, id]);
-    }
-    else if(this.url[1] === 'store'){
-      const storeId = this.url[2];
-      //console.log(storeId);
-      this.router.navigate([`${detailChildCollectionUrl}/${+storeId}/book`, id]);
-    }
+    this.router.navigate([navigateToUrl, id]);
   }
 
   changePage(page: number): any{
@@ -127,8 +109,6 @@ export class ItemListComponent implements OnInit {
       this.skip = this.itemsPerPageCount * (page - 1);
     }
     this.itemsPerPage = this.items.slice(this.skip, this.skip + this.top);
-    // console.log(this.booksPerPage);
-    // console.log(this.books);
   }
 
 
