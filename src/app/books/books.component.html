@@ -6,9 +6,10 @@
             </app-books-by-store-filter>
         </div>
         <div class="col-md-10">
-            <!-- <h2 id="title" *ngIf="!selectedStore"> {{capitalizeFirstLetter(this.url[1])}}</h2> -->
-            <h2 id="title" *ngIf="selectedStore!==undefined"> Displaying books of  <em> {{selectedStore.Name}}</em></h2>
-            <app-item-list [onSelectedStore]="selectedStore"></app-item-list>
+            <h2 id="title" *ngIf="!selectedStore"> {{ listCollectionUrl | capitalizeFirstLetter }}</h2>  
+            <h2 id="title" *ngIf="selectedStore"> Displaying books of  <em> {{selectedStore.Name}}
+            </em></h2>
+            <app-item-list [onSelectedStore]="selectedStore" (onUrl)="listCollectionUrl=$event"></app-item-list>
         </div>
     </div>
 </div>

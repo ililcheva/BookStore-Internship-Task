@@ -1,4 +1,4 @@
-import { Component, OnInit, Input }                         from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter }                         from '@angular/core';
 import { Router}            from '@angular/router';
 
 import { Book }              from '../book';
@@ -13,6 +13,17 @@ import { StoreService }       from '../store.service';
 })
 export class ItemListComponent implements OnInit {
 
+  url: string[] = this.router.url.split('/');
+  listCollectionUrl = this.url[1];
+  selectedStore: Store;
+  currentPage = 1;
+  size: number;
+  items: any[];
+  itemsPerPage: any[];
+  itemsPerPageCount: number = 8;
+  top: number;
+  skip: number = 0;
+
   
   @Input() 
   set onSelectedStore(_selectedStore: Store){
@@ -22,21 +33,9 @@ export class ItemListComponent implements OnInit {
       this.getItems();
     }
   } 
+
+  @Output() onUrl = new EventEmitter<string>();
   
- 
-  selectedStore: Store;
-  currentPage = 1;
-  items: any[];
-  size: number;
-  itemsPerPage: any[];
-  itemsPerPageCount: number = 8;
-  top: number;
-  skip: number = 0;
-  displayedStore: Store;
-
-
-  url: string[] = this.router.url.split('/');
-  listCollectionUrl = this.url[1];
 
   constructor(
     private bookService: BookService,
@@ -65,6 +64,7 @@ export class ItemListComponent implements OnInit {
             promise = this.storeService.getBooksPerStore(currentStoreId);
             break;
         }
+        this.onUrl.emit(this.listCollectionUrl);
       }
       promise.then(items => {
               this.top = this.itemsPerPageCount;
@@ -77,10 +77,6 @@ export class ItemListComponent implements OnInit {
   ngOnInit(): void {
     // console.log('ngOnInit');
     this.getItems();
-  }
-
-  capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
   goToDetail(id: number): void{

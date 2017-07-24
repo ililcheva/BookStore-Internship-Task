@@ -17,6 +17,7 @@ import { BookUpdateComponent }                      from './book-update/book-upd
 import { ItemListComponent }                        from './item-list/item-list.component';
 import { BooksByStoreFilterComponent } from './books-by-store-filter/books-by-store-filter.component';
 import { BooksComponent } from './books/books.component';
+import { CapitalizeFirstLetterPipe } from './capitalize-first-letter.pipe';
 
 
 
@@ -30,7 +31,8 @@ import { BooksComponent } from './books/books.component';
     BookUpdateComponent,
     ItemListComponent,
     BooksByStoreFilterComponent,
-    BooksComponent
+    BooksComponent,
+    CapitalizeFirstLetterPipe
   ],
   imports: [
     BrowserModule,
